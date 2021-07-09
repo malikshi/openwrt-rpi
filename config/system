@@ -1,16 +1,19 @@
+
 config system
-	option timezone 'Europe/Berlin'
 	option ttylogin '0'
 	option urandom_seed '0'
 	option cronloglevel '9'
 	option log_size '256'
-	option hostname 'openwrt'
+	option zonename 'Asia/Jakarta'
+	option timezone 'WIB-7'
+	option log_proto 'udp'
+	option conloglevel '8'
+	option hostname 'OpenWRT'
 
 config timeserver 'ntp'
-	option enabled '1'
-	option enable_server '0'
 	list server 'time.cloudflare.com'
 
 config rngd
 	option enabled '1'
 	option device '/dev/urandom'
+

@@ -1,3 +1,4 @@
+
 config defaults
 	option syn_flood '1'
 	option input 'ACCEPT'
@@ -10,6 +11,7 @@ config zone
 	option output 'ACCEPT'
 	option forward 'ACCEPT'
 	list network 'lan'
+	list network 'usb2lan'
 
 config zone
 	option name 'wan'
@@ -21,6 +23,7 @@ config zone
 	list network 'wan'
 	list network 'wan6'
 	list network 'vpn'
+	list network 'WINDSCRIBE'
 
 config forwarding
 	option src 'lan'
@@ -134,7 +137,6 @@ config include
 	option path '/etc/firewall.user'
 	option reload '1'
 
-# Allow LuCi to be accessed from both WAN and LAN
 config rule
 	option name 'Allow LuCi'
 	list proto 'tcp'
@@ -142,9 +144,9 @@ config rule
 	option dest_port '80'
 	option target 'ACCEPT'
 
-# Allow SSH to be accessed from both WAN and LAN
 config rule
 	option name 'Allow SSH'
 	option src '*'
 	option dest_port '22'
 	option target 'ACCEPT'
+
