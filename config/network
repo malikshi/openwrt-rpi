@@ -45,6 +45,7 @@ config wireguard_WINDSCRIBE
 	option public_key 'CR8urzBgc9/3NBq3XY+KUdztS8UyZartMsd5Nzt3KUg='
 	option preshared_key 'wMGVKRh+ZtxKUym5UfQVhMsCHKDDjEz6D7VM/WLs25I='
 	list allowed_ips '0.0.0.0/0'
+	list allowed_ips '::/0'
 	option route_allowed_ips '1'
 	option endpoint_host 'mobile.youtube.com'
 	option endpoint_port '443'
