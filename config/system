@@ -8,7 +8,7 @@ config system
 	option timezone 'WIB-7'
 	option log_proto 'udp'
 	option conloglevel '8'
-	option hostname 'OpenWRT'
+	option hostname 'MalikWRT'
 
 config timeserver 'ntp'
 	list server 'time.cloudflare.com'
