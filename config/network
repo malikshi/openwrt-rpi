@@ -8,17 +8,13 @@ config interface 'loopback'
 config globals 'globals'
 	option ula_prefix 'fdd2:f085:4f32::/48'
 
-config device
-	option name 'br-lan'
-	option type 'bridge'
-	list ports 'eth0'
-
 config interface 'lan'
-	option device 'br-lan'
-	option proto 'static'
-	option ipaddr '192.168.1.1'
-	option netmask '255.255.255.0'
-	option ip6assign '60'
+    option type 'bridge'
+    option ifname 'eth0'
+    option proto 'static'
+    option ipaddr '192.168.1.1'
+    option netmask '255.255.255.0'
+    option ip6assign '60'
 
 config interface 'ueth1'
 	option proto 'dhcp'
