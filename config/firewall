@@ -6,20 +6,20 @@ config defaults
 	option forward 'REJECT'
 
 config zone
-    option name 'lan'
-    option input 'ACCEPT'
-    option output 'ACCEPT'
-    option forward 'ACCEPT'
-    option network 'lan'
+  option name 'lan'
+  option input 'ACCEPT'
+  option output 'ACCEPT'
+  option forward 'ACCEPT'
+  option network 'lan'
 
 config zone
 	option name 'wan'
-    option input 'REJECT'
-    option output 'ACCEPT'
-    option forward 'REJECT'
-    option masq '1'
+  option input 'REJECT'
+  option output 'ACCEPT'
+  option forward 'REJECT'
+  option masq '1'
 	option mtu_fix '1'
-    option family 'ipv4'
+  option family 'ipv4'
 
 config forwarding
 	option src 'lan'
