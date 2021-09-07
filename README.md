@@ -28,6 +28,7 @@ OpenWrt for RPi 4 allows you to use your RPi 4 Model B as a configurable router,
 6. Bypass restrictions and access Onion sites for all connected clients via Tor
 7. Create additional (highly configurable) guest WiFi access points
 8. MultiWAN Manager(MWAN3) configured by default, enabled it in LuCI > system > startup
+
 For more use-cases visit the [OpenWrt Wiki](https://openwrt.org/reasons_to_use_openwrt#extensibility).
 
 ## MultiWAN Manager
