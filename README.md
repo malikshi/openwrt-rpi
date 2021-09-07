@@ -35,7 +35,7 @@ For more use-cases visit the [OpenWrt Wiki](https://openwrt.org/reasons_to_use_o
 - Go to MultiWAN Manager - Interfaces, and edit `Tracking hostname or IP address` with your WAN gateway and IP Address from your WAN
 
 ## Installation OpenClash OpenWRT
-- Install requirement
+- Install Requirement
 ```sh
 opkg update
 opkg install coreutils-nohup bash iptables dnsmasq-full curl jsonfilter ca-certificates ipset ip-full iptables-mod-tproxy iptables-mod-extra libcap libcap-bin ruby ruby-yaml
@@ -58,20 +58,20 @@ opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptab
 ```
 
 - Install V2ray-core
-1. Add new opkg key:
+    1. Add new opkg key:
 
 ```sh
 wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
 opkg-key add kuoruan-public.key
 ```
 
-2. Add opkg repository:
+    2. Add opkg repository:
 
 ```sh
 echo "src/gz kuoruan_packages http://openwrt.kuoruan.net/packages/releases/$(. /etc/openwrt_release ; echo $DISTRIB_ARCH)" \
   >> /etc/opkg/customfeeds.conf
 ```
-3. Install package:
+    3. Install package:
 
 ```sh
 opkg update
