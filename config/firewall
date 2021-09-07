@@ -19,7 +19,7 @@ config zone
     option forward 'REJECT'
     option masq '1'
 	option mtu_fix '1'
-    option network 'wan wan6 wg1 wan6'
+    option family 'ipv4'
 
 config forwarding
 	option src 'lan'
@@ -33,6 +33,7 @@ config zone
 	option input 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
+	option family 'ipv4'
 
 config forwarding
 	option dest 'fweth1'
@@ -46,6 +47,7 @@ config zone
 	option input 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
+	option family 'ipv4'
 
 config forwarding
 	option dest 'fweth2'
@@ -59,6 +61,7 @@ config zone
 	option input 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
+	option family 'ipv4'
 
 config forwarding
 	option dest 'fweth3'
@@ -72,6 +75,7 @@ config zone
 	option input 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
+	option family 'ipv4'
 
 config forwarding
 	option dest 'fweth4'
@@ -184,5 +188,3 @@ config rule
 config include
 	option path '/etc/firewall.user'
 	option reload '1'
-
-

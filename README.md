@@ -27,8 +27,61 @@ OpenWrt for RPi 4 allows you to use your RPi 4 Model B as a configurable router,
 5. Reduce latency even during heavy traffic
 6. Bypass restrictions and access Onion sites for all connected clients via Tor
 7. Create additional (highly configurable) guest WiFi access points
-
+8. MultiWAN Manager(MWAN3) configured by default, enabled it in LuCI > system > startup
 For more use-cases visit the [OpenWrt Wiki](https://openwrt.org/reasons_to_use_openwrt#extensibility).
+
+## MultiWAN Manager
+- Go to MultiWAN Manager - Interfaces, and edit `Tracking hostname or IP address` with your WAN gateway and IP Address from your WAN
+
+## Installation OpenClash OpenWRT
+- Install requirement
+```sh
+opkg update
+opkg install coreutils-nohup bash iptables dnsmasq-full curl jsonfilter ca-certificates ipset ip-full iptables-mod-tproxy iptables-mod-extra libcap libcap-bin ruby ruby-yaml
+```
+- Install Openclash ipk
+```sh
+mkdir /etc/openclash
+wget -qO /root/luci-app-openclash.ipk $(curl -sL https://github.com/vernesong/OpenClash/releases | grep luci-app-openclash_ | sed -e 's/\"//g' -e 's/ //g' -e 's/rel=.*//g' -e 's#<ahref=#http://github.com#g' | awk 'FNR <= 1')
+opkg install /root/luci-app-openclash.ipk
+rm -f /root/luci-app-openclash.ipk || true
+```
+- Reboot your OpenWRT router
+
+## Installation V2rayA OpenWRT
+- Install Requirement
+```sh
+opkg update
+opkg install ca-certificates wget unzip tar curl
+opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptables-mod-conntrack-extra iptables-mod-extra
+```
+
+- Install V2ray-core
+1. Add new opkg key:
+
+```sh
+wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
+opkg-key add kuoruan-public.key
+```
+
+2. Add opkg repository:
+
+```sh
+echo "src/gz kuoruan_packages http://openwrt.kuoruan.net/packages/releases/$(. /etc/openwrt_release ; echo $DISTRIB_ARCH)" \
+  >> /etc/opkg/customfeeds.conf
+```
+3. Install package:
+
+```sh
+opkg update
+opkg install v2ray-core
+```
+
+- Install V2raya via OPKG
+```sh
+opkg update
+opkg install v2rayA
+```
 
 ## Requirements
 - RPi 4 Model B
@@ -50,7 +103,7 @@ For more use-cases visit the [OpenWrt Wiki](https://openwrt.org/reasons_to_use_o
   - Username: `root`
   - Password: `root`
 - **WiFi Access Point:** 
-  - SSID: `OpenWrt WiFi`
+  - SSID: `Malik WiFi`
   - PassKey: `changeThisPassKey`
 
 ## Release Schedule
@@ -61,6 +114,9 @@ Automated builds have been scheduled for once a week. Urgent hotfixes will be ma
 ### Notes
 - For more information on the default features included in this build plus usage instructions, please refer the [wulfy23/rpi4](https://github.com/wulfy23/rpi4) repository.
 - In the above context WAN refers to your home/office network, and LAN refers to the network created by OpenWrt.
+- Openclash OpenWRT, Credit [vernesong/OpenClash](https://github.com/vernesong/OpenClash)
+- V2ray OpenWRT, Credit [kuoruan/openwrt-v2ray](https://github.com/kuoruan/openwrt-v2ray)
+- V2rayA OpenWRT, Credit [v2rayA/v2rayA](https://github.com/v2rayA/v2rayA)
 
 ### Recommendations
 <sup>1</sup> Change to a more secure DNS provider after installation<br>
