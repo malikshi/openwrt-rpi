@@ -58,20 +58,20 @@ opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptab
 ```
 
 - Install V2ray-core
-    1. Add new opkg key:
+    - Add new opkg key:
 
 ```sh
 wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
 opkg-key add kuoruan-public.key
 ```
 
-    2. Add opkg repository:
+    - Add opkg repository:
 
 ```sh
 echo "src/gz kuoruan_packages http://openwrt.kuoruan.net/packages/releases/$(. /etc/openwrt_release ; echo $DISTRIB_ARCH)" \
   >> /etc/opkg/customfeeds.conf
 ```
-    3. Install package:
+    - Install package:
 
 ```sh
 opkg update
