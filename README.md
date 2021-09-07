@@ -45,7 +45,7 @@ opkg install coreutils-nohup bash iptables dnsmasq-full curl jsonfilter ca-certi
 mkdir /etc/openclash
 wget -qO /root/luci-app-openclash.ipk $(curl -sL https://github.com/vernesong/OpenClash/releases | grep luci-app-openclash_ | sed -e 's/\"//g' -e 's/ //g' -e 's/rel=.*//g' -e 's#<ahref=#http://github.com#g' | awk 'FNR <= 1')
 opkg install /root/luci-app-openclash.ipk
-rm -f /root/luci-app-openclash.ipk || true
+rm -f /root/luci-app-openclash.ipk
 ```
 - Reboot your OpenWRT router
 
