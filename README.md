@@ -71,10 +71,14 @@ opkg update
 opkg install v2ray-core
 ```
 
-- Install V2raya via OPKG
+- Install tmux
 ```sh
 opkg update
-opkg install v2rayA
+opkg install tmux
+```
+- Install V2raya with binary
+```sh
+
 ```
 
 ## Requirements
