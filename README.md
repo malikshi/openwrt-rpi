@@ -86,7 +86,7 @@ chmod +x /usr/bin/v2raya
 mkdir /etc/v2raya
 ```
 - Setting V2rayA startup every boot using tmux
-copy this text into `system > startup` paste before `exit 0` 
+copy this text into `system > startup` paste before lines `exit 0` 
 ```sh
 (/usr/bin/v2raya --v2ray-bin /usr/bin/v2ray --config /etc/v2raya --v2ray-confdir /etc/v2raya --log-level info --ipv6-support on --log-file /tmp/v2rayA.log --log-max-days 1)
 ```
