@@ -78,8 +78,19 @@ opkg install tmux
 ```
 - Install V2raya with binary
 ```sh
-
+wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64"
+chmod +x /usr/bin/v2raya
 ```
+- Create Directory for V2rayA
+```sh
+mkdir /etc/v2raya
+```
+- Setting V2rayA startup every boot using tmux
+```sh
+echo "tmux new-session -d -s v2raya && tmux send-keys -t v2raya \"/usr/bin/v2raya --v2ray-bin /usr/bin/v2ray --config /etc/v2raya --v2ray-confdir /etc/v2raya --log-level error --ipv6-support on --log-file /tmp/v2rayA.log --log-max-days 1
+\"" >>/etc/rc.local
+```
+- Reboot & Access V2rayA `IP-OpenWRT:2017` e.g `192.168.1.1:2017`
 
 ## Requirements
 - RPi 4 Model B
