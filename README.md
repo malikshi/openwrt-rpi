@@ -71,11 +71,6 @@ opkg update
 opkg install v2ray-core
 ```
 
-- Install tmux
-```sh
-opkg update
-opkg install tmux
-```
 - Install V2raya with binary
 ```sh
 wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64"
@@ -88,7 +83,7 @@ mkdir /etc/v2raya
 - Setting V2rayA startup every boot using tmux
 copy this text into `system > startup` paste before lines `exit 0` 
 ```sh
-(/usr/bin/v2raya --v2ray-bin /usr/bin/v2ray --config /etc/v2raya --v2ray-confdir /etc/v2raya --log-level info --ipv6-support on --log-file /tmp/v2rayA.log --log-max-days 1)
+(/usr/bin/v2raya --v2ray-bin /usr/bin/v2ray --config /etc/v2raya --v2ray-confdir /etc/v2raya --log-level info --ipv6-support on --log-file /tmp/v2rayA.log --log-max-days 1)&
 ```
 - Reboot & Access V2rayA `IP-OpenWRT:2017` e.g `192.168.1.1:2017`
 
