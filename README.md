@@ -83,7 +83,7 @@ mkdir /etc/v2raya
 - Setting V2rayA startup every boot via `rc.local`
 copy this text into `system > startup` paste before lines `exit 0` 
 ```sh
-(/usr/bin/v2raya --v2ray-bin /usr/bin/v2ray --config /etc/v2raya --v2ray-confdir /etc/v2raya --log-level info --ipv6-support on --log-file /tmp/v2rayA.log --log-max-days 1)&
+(/usr/bin/v2raya --v2ray-bin /usr/bin/v2ray --config /etc/v2raya --v2ray-confdir /etc/v2raya --log-level info --ipv6-support off --log-file /tmp/v2rayA.log --log-max-days 1)&
 ```
 - Reboot & Access V2rayA `IP-OpenWRT:2017` e.g `192.168.1.1:2017`
 
