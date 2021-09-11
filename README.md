@@ -72,6 +72,7 @@ opkg install v2ray-core
 ```
 
 - Install V2raya with binary
+
 For arm64 like RPI4B | STB
 ```sh
 wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64"
