@@ -73,7 +73,11 @@ opkg install v2ray-core
 
 - Install V2raya with binary
 
-For arm64 like RPI4B | STB
+1st Check your type architecture
+```sh
+cat /etc/*release
+```
+For arm64 like RPI4B
 ```sh
 wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64"
 chmod +x /usr/bin/v2raya
@@ -81,6 +85,11 @@ chmod +x /usr/bin/v2raya
 For arm Orange Pi Zero(Opiz)
 ```sh
 wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm_a7"
+chmod +x /usr/bin/v2raya
+```
+For aarch64_cortex-a53 STB
+```sh
+wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64_a5"
 chmod +x /usr/bin/v2raya
 ```
 - Create Directory for V2rayA
