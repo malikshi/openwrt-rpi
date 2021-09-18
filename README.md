@@ -64,6 +64,7 @@ mkdir /etc/v2raya/bin
 ```
 
 - Install V2ray-core
+
 **FOR RPI4B**
 1st install directly from v2fly
 ```sh
@@ -89,6 +90,7 @@ opkg install /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
 rm /etc/v2raya/bin/v2ray-extra_4.42.2-22_all.ipk
 rm /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
 ```
+
 **Alternative for NON-RPI4B**
 install v2ray-core from kuoruan repository
 ```sh
