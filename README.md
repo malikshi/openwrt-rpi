@@ -94,7 +94,6 @@ rm /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
 ```
 3rd update geodata
 ```sh
-wget -O /usr/share/v2ray/LoyalsoldierSite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
 wget -O /usr/share/v2ray/geosite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
 wget -O /usr/share/v2ray/geoip.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geoip.dat
 ```
