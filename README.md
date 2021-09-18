@@ -61,6 +61,7 @@ opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptab
 ```sh
 mkdir /etc/v2raya
 mkdir /etc/v2raya/bin
+mkdir /usr/share/v2ray
 ```
 
 - Install V2ray-core
@@ -91,29 +92,14 @@ opkg install /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
 rm /etc/v2raya/bin/v2ray-extra_4.42.2-22_all.ipk
 rm /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
 ```
-
-**Alternative for NON-RPI4B**
-
-install v2ray-core from kuoruan repository
+3rd update geodata
 ```sh
-wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
-opkg-key add kuoruan-public.key
-```
-```sh
-echo "src/gz kuoruan_packages http://openwrt.kuoruan.net/packages/releases/$(. /etc/openwrt_release ; echo $DISTRIB_ARCH)" \
-  >> /etc/opkg/customfeeds.conf
-```
-```sh
-opkg update
-opkg install v2ray-core
-```
-install v2ray geodata
-```sh
-mkdir /usr/share/v2ray
 wget -O /usr/share/v2ray/LoyalsoldierSite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
 wget -O /usr/share/v2ray/geosite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
 wget -O /usr/share/v2ray/geoip.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geoip.dat
 ```
+
+
 
 - Install V2raya with binary
 
@@ -145,17 +131,11 @@ chmod +x /etc/init.d/v2raya
 
 - Setting V2rayA Startup Config
 
-**For RPI4B**
 ```sh
 wget -O /etc/config/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya.config"
 uci commit v2raya
 ```
 
-**For NON-RPI4B**
-```sh
-wget -O /etc/config/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_non-rpi4b.config"
-uci commit v2raya
-```
 - Reboot & Access V2rayA `IP-OpenWRT:2017` e.g `192.168.1.1:2017`
 - Setting RoutingA for V2rayA dedicated for isp Ts*l : [RoutingA](https://github.com/malikshi/openwrt-rpi/blob/main/bin-or-ipk/routingA.conf)
 
