@@ -65,7 +65,7 @@ mkdir /etc/v2raya/bin
 
 - Install V2ray-core
 
-**FOR RPI4B**
+**FOR RPI4B AND STB**
 
 1st install directly from v2fly
 ```sh
@@ -147,13 +147,13 @@ chmod +x /etc/init.d/v2raya
 
 **For RPI4B**
 ```sh
-wget -O /etc/init.d/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya.config"
+wget -O /etc/config/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya.config"
 uci commit v2raya
 ```
 
 **For NON-RPI4B**
 ```sh
-wget -O /etc/init.d/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_non-rpi4b.config"
+wget -O /etc/config/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_non-rpi4b.config"
 uci commit v2raya
 ```
 - Reboot & Access V2rayA `IP-OpenWRT:2017` e.g `192.168.1.1:2017`
