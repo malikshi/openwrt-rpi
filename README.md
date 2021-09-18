@@ -57,7 +57,40 @@ opkg install ca-certificates wget unzip tar curl
 opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptables-mod-conntrack-extra iptables-mod-extra
 ```
 
+- Create Directory for V2rayA
+```sh
+mkdir /etc/v2raya
+mkdir /etc/v2raya/bin
+```
+
 - Install V2ray-core
+**FOR RPI4B**
+1st install directly from v2fly
+```sh
+version=$(curl -s https://api.github.com/repos/v2fly/v2ray-core/releases | jq -r .[].tag_name | head -1)
+wget -c -q --show-progress -P /etc/v2raya/bin/ "https://github.com/v2fly/v2ray-core/releases/download/${version}/v2ray-linux-arm64-v8a.zip"
+unzip -d /etc/v2raya/bin /etc/v2raya/bin/v2ray-linux-arm64-v8a.zip
+rm /etc/v2raya/bin/config.json
+rm /etc/v2raya/bin/geoip.dat
+rm /etc/v2raya/bin/geosite.dat
+rm /etc/v2raya/bin/geoip-only-cn-private.dat
+rm /etc/v2raya/bin/v2ray-linux-arm64-v8a.zip
+rm /etc/v2raya/bin/vpoint_socks_vmess.json
+rm /etc/v2raya/bin/vpoint_vmess_freedom.json
+rm -rf /etc/v2raya/bin/systemd
+```
+2nd install geodata
+```sh
+wget -c -q --show-progress -P /etc/v2raya/bin/ "https://op.supes.top/packages/aarch64_cortex-a72/v2ray-extra_4.42.2-22_all.ipk"
+wget -c -q --show-progress -P /etc/v2raya/bin/ "https://op.supes.top/packages/aarch64_cortex-a72/v2ray-geodata_4.42.2-22_all.ipk"
+wget -O /usr/share/v2ray/LoyalsoldierSite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
+opkg install /etc/v2raya/bin/v2ray-extra_4.42.2-22_all.ipk
+opkg install /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
+rm /etc/v2raya/bin/v2ray-extra_4.42.2-22_all.ipk
+rm /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
+```
+**Alternative for NON-RPI4B**
+install v2ray-core from kuoruan repository
 ```sh
 wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
 opkg-key add kuoruan-public.key
@@ -69,6 +102,13 @@ echo "src/gz kuoruan_packages http://openwrt.kuoruan.net/packages/releases/$(. /
 ```sh
 opkg update
 opkg install v2ray-core
+```
+install v2ray geodata
+```sh
+mkdir /usr/share/v2ray
+wget -O /usr/share/v2ray/LoyalsoldierSite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
+wget -O /usr/share/v2ray/geosite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
+wget -O /usr/share/v2ray/geoip.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geoip.dat
 ```
 
 - Install V2raya with binary
@@ -92,14 +132,25 @@ For aarch64_cortex-a53 STB
 wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64_a5"
 chmod +x /usr/bin/v2raya
 ```
-- Create Directory for V2rayA
+
+- Setting V2rayA Init
 ```sh
-mkdir /etc/v2raya
+wget -O /etc/init.d/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya.init"
+chmod +x /etc/init.d/v2raya
 ```
-- Setting V2rayA startup every boot via `rc.local`
-copy this text into `system > startup` paste before lines `exit 0` 
+
+- Setting V2rayA Startup Config
+
+**For RPI4B**
 ```sh
-(/usr/bin/v2raya --v2ray-bin /usr/bin/v2ray --config /etc/v2raya --v2ray-confdir /etc/v2raya --log-level info --ipv6-support off --log-file /tmp/v2rayA.log --log-max-days 1)&
+wget -O /etc/init.d/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya.config"
+uci commit v2raya
+```
+
+**For NON-RPI4B**
+```sh
+wget -O /etc/init.d/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_non-rpi4b.config"
+uci commit v2raya
 ```
 - Reboot & Access V2rayA `IP-OpenWRT:2017` e.g `192.168.1.1:2017`
 - Setting RoutingA for V2rayA dedicated for isp Ts*l : [RoutingA](https://github.com/malikshi/openwrt-rpi/blob/main/bin-or-ipk/routingA.conf)
