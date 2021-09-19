@@ -135,7 +135,7 @@ wget -O /etc/config/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin
 uci commit v2raya
 ```
 
-- Reboot & Access V2rayA `IP-OpenWRT:2017` e.g `192.168.1.1:2017`
+- Reboot & Access V2rayA `IP-OpenWRT:2017` example: `192.168.1.1:2017`
 - Setting RoutingA for V2rayA dedicated for isp Ts*l : [RoutingA](https://github.com/malikshi/openwrt-rpi/blob/main/bin-or-ipk/routingA.conf)
 
 ## Requirements
