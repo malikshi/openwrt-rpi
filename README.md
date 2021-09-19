@@ -43,7 +43,7 @@ opkg install coreutils-nohup bash iptables dnsmasq-full jsonfilter ca-certificat
 - Install Openclash ipk
 ```sh
 mkdir /etc/openclash
-wget -qO /root/luci-app-openclash.ipk $(curl -sL https://github.com/vernesong/OpenClash/releases | grep luci-app-openclash_ | sed -e 's/\"//g' -e 's/ //g' -e 's/rel=.*//g' -e 's#<ahref=#http://github.com#g' | awk 'FNR <= 1')
+wget -O /root/luci-app-openclash.ipk $(curl -sL https://github.com/vernesong/OpenClash/releases | grep luci-app-openclash_ | sed -e 's/\"//g' -e 's/ //g' -e 's/rel=.*//g' -e 's#<ahref=#http://github.com#g' | awk 'FNR <= 1')
 opkg install /root/luci-app-openclash.ipk
 rm -f /root/luci-app-openclash.ipk
 ```
@@ -108,17 +108,17 @@ cat /etc/*release
 ```
 For arm64 like RPI4B
 ```sh
-wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64"
+wget -O /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64"
 chmod +x /usr/bin/v2raya
 ```
 For arm Orange Pi Zero(Opiz)
 ```sh
-wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm_a7"
+wget -O /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm_a7"
 chmod +x /usr/bin/v2raya
 ```
 For aarch64_cortex-a53 STB
 ```sh
-wget -qO /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64_a5"
+wget -O /usr/bin/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya_arm64_a5"
 chmod +x /usr/bin/v2raya
 ```
 
