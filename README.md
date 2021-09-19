@@ -38,7 +38,7 @@ For more use-cases visit the [OpenWrt Wiki](https://openwrt.org/reasons_to_use_o
 - Install Requirement
 ```sh
 opkg update
-opkg install coreutils-nohup bash iptables dnsmasq-full curl jsonfilter ca-certificates ipset ip-full iptables-mod-tproxy iptables-mod-extra libcap libcap-bin ruby ruby-yaml
+opkg install coreutils-nohup bash iptables dnsmasq-full jsonfilter ca-certificates ipset ip-full iptables-mod-tproxy iptables-mod-extra libcap libcap-bin ruby ruby-yaml
 ```
 - Install Openclash ipk
 ```sh
@@ -53,7 +53,7 @@ rm -f /root/luci-app-openclash.ipk
 - Install Requirement
 ```sh
 opkg update
-opkg install ca-certificates wget unzip tar curl
+opkg install ca-certificates wget unzip tar
 opkg install ip-full kmod-ipt-nat6 iptables-mod-tproxy iptables-mod-filter iptables-mod-conntrack-extra iptables-mod-extra
 ```
 
