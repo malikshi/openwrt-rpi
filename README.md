@@ -50,7 +50,8 @@ rm -f /root/luci-app-openclash.ipk
 - Reboot your OpenWRT router
 
 ## Installation V2rayA OpenWRT
-- Install Requirement
+
+- Install Requirement *SKIP THIS STEP IF YOU ARE USING STB FW FROM R3YR3*
 ```sh
 opkg update
 opkg install ca-certificates wget unzip tar
