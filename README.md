@@ -124,6 +124,7 @@ chmod +x /etc/init.d/v2raya
 ```sh
 wget -O /etc/config/v2raya "https://github.com/malikshi/openwrt-rpi/raw/main/bin-or-ipk/v2raya.config"
 uci commit v2raya
+/etc/init.d/v2raya enable
 ```
 
 - Reboot & Access V2rayA `IP-OpenWRT:2017` example: `192.168.1.1:2017`
