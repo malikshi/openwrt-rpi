@@ -84,18 +84,9 @@ rm -rf /etc/v2raya/bin/systemd
 ```
 2nd install geodata
 ```sh
-wget -c -q --show-progress -P /etc/v2raya/bin/ "https://op.supes.top/packages/aarch64_cortex-a72/v2ray-extra_4.42.2-22_all.ipk"
-wget -c -q --show-progress -P /etc/v2raya/bin/ "https://op.supes.top/packages/aarch64_cortex-a72/v2ray-geodata_4.42.2-22_all.ipk"
-wget -O /usr/share/v2ray/LoyalsoldierSite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
-opkg install /etc/v2raya/bin/v2ray-extra_4.42.2-22_all.ipk
-opkg install /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
-rm /etc/v2raya/bin/v2ray-extra_4.42.2-22_all.ipk
-rm /etc/v2raya/bin/v2ray-geodata_4.42.2-22_all.ipk
-```
-3rd update geodata
-```sh
 wget -O /usr/share/v2ray/geosite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
 wget -O /usr/share/v2ray/geoip.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geoip.dat
+wget -O /usr/share/v2ray/LoyalsoldierSite.dat https://raw.githubusercontent.com/v2rayA/dist-v2ray-rules-dat/master/geosite.dat
 ```
 
 
